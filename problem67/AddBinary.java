@@ -31,7 +31,11 @@ class Solution {
                 else carry=0;
             }
         }
-        if(carry==1) result=1+result;        //check the final carry of the left-most binary digit
+        if(carry==1) result=1+result;
+        else if(result.length()>=2){               //for any result with a length more than 1, abandon all 0 ahead of the first 1
+            int loca=result.indexOf("1");
+            result=result.substring(loca);
+        }
         return result;
     }
 }
